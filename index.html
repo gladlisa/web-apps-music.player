@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="index-1" href="lyrics.html" />
+    <title>Music Player</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="music-player">
+        <nav>
+          <div class="circle" id="toMainPage">
+            <i class="fa-solid fa-angle-left"></i>
+          </div>
+          <div id="toMainPageOverlay">
+            <div id="toMainPageOverlay-content">
+              <h2 class="tour-gallery-title">TATTOUR'23</h2>
+              <div class="tour-gallery"></div>
+              <button id="playlistButton">Go To Playlist</button>
+            </div>
+          </div>
+          <div class="circle" id="openMenu">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+          <div id="overlay">
+            <div id="overlay-content">
+              <h2>TRACK LIST</h2>
+              <ul>
+                <li><button class="btn-track pink">Neon Lights</button></li>
+                <li><button class="btn-track lila">Tattoo</button></li>
+                <li>
+                  <button class="btn-track pink">Love Me America*</button>
+                </li>
+                <li>
+                  <button class="btn-track lila">
+                    My Heart Is Refusing Me
+                  </button>
+                </li>
+                <li><button class="btn-track pink">Euphoria</button></li>
+                <li>
+                  <button class="btn-track lila">Crying Out Your Name</button>
+                </li>
+                <li><button class="btn-track pink">Jupiter Drive</button></li>
+                <li>
+                  <button class="btn-track lila">Paper Light Revisited</button>
+                </li>
+                <li><button class="btn-track pink">Is It Love</button></li>
+                <li><button class="btn-track lila">In My Head</button></li>
+                <li><button class="btn-track pink">Statements</button></li>
+                <li><button class="btn-track lila">Ride</button></li>
+                <p id="stared-text">
+                  * Not originally included in the tour's playlist, but it's
+                  worth adding it here
+                </p>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <img id="trackImage" src="neon lights.jpg" class="song-img" />
+        <div class="track-despription">
+          <h1 id="trackTitle">Neon Lights</h1>
+          <p id="trackArtist">Loreen</p>
+
+          <audio id="song">
+            <source src="Loreen - Neon Lights.mp3" type="audio/mpeg" />
+            <source src="Loreen - Tattoo.mp3" type="audio/mpeg" />
+            <source src="Loreen - Love Me America.mp3" type="audio/mpeg" />
+            <source
+              src="Loreen - My Heart Is Refusing Me.mp3"
+              type="audio/mpeg"
+            />
+            <source src="Loreen - Euphoria.mp3" type="audio/mpeg" />
+            <source src="Loreen - Crying Out Your Name.mp3" type="audio/mpeg" />
+            <source src="Loreen - Jupiter Drive.mp3" type="audio/mpeg" />
+            <source
+              src="Loreen - Paper Light Revisited.mp3"
+              type="audio/mpeg"
+            />
+            <source src="Loreen - Is It Love.mp3" type="audio/mpeg" />
+            <source src="Loreen - In My Head.mp3" type="audio/mpeg" />
+            <source src="Loreen - Statements.mp3" type="audio/mpeg" />
+            <source src="Loreen - Ride.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+        <input type="range" value="0" id="progress" />
+        <div class="track-time">
+          <div id="currentTime"></div>
+          <div id="totalDuration"></div>
+        </div>
+        <div class="above-controls">
+          <div onclick="mixTrack()" id="shuffleButton">
+            <i class="fa-solid fa-shuffle"></i>
+          </div>
+          <div class="controls">
+            <div onclick="prevTrack()">
+              <i class="fa-solid fa-backward"></i>
+            </div>
+            <div onclick="playPause()">
+              <i class="fa-solid fa-play" id="ctrlIcon"></i>
+            </div>
+            <div onclick="nextTrack()">
+              <i class="fa-solid fa-forward"></i>
+            </div>
+          </div>
+          <div onclick="repeatTrack()">
+            <i class="fa-solid fa-repeat"></i>
+          </div>
+        </div>
+        <div class="lyrics">
+          <button
+            id="openLyrics"
+            onclick="toggleLyricsOverlay()"
+            class="expand-btn"
+          >
+            lyrics<i class="fa-solid fa-chevron-down"></i>
+          </button>
+
+          <div id="lyricsOverlay" class="hidden">
+            <p id="lyricsContent">
+              Some call me when they need me <br />Some people make me up
+              <br />Some hear me but can't see me <br />Some have me in their
+              blood <br /><br />I'm the black in all the matter <br />The wind
+              that strokes your hair <br />The crack within the pattern
+              <br />The empty in the air <br /><br />Even if I, if I want to
+              <br />I can't let go <br />Can't unlove you <br />Even if I, if I
+              want to <br /><br />You should know that I'll be watching every
+              step <br />I'm the neon light that's running through your cells
+              <br />I'm the flicker on your skin <br />I'm in every breath
+              <br />You're the part of me that I'll never regret
+              <br /><br />When you're lost I'll be the stranger and the taxi
+              driver <br />The flashing light, the night time fighter <br />The
+              siren call, the last real rider <br /><br />Some feel me as a
+              shiver <br />A changing of the wind <br />I'll follow you wherever
+              <br />I've been everywhere you've been <br /><br />Even if I, if I
+              want to <br />I can't let go <br />Can't unlove you <br />Even if
+              I, if I want to <br /><br />You should know that I'll be watching
+              every step <br />I'm the neon light that's running through your
+              cells <br />I'm the flicker on your skin <br />I'm in every breath
+              <br />You're the part of me that I'll never regret
+              <br /><br />When you're lost I'll be the stranger and the taxi
+              driver <br />The flashing light, the night time fighter <br />The
+              siren call, the last real rider <br /><br />When you're lost I'll
+              be the stranger and the taxi driver <br />The flashing light, the
+              night time fighter <br />The siren call, the last real rider
+              <br /><br />When you're lost I'll be there <br />When you're lost
+              I'll be there <br /><br />When you're lost I'll be the
+              <br />Stranger and the taxi driver <br />The flashing lights, the
+              night time fighter <br />The siren call, the last real rider
+              <br /><br />Don't you know that I'll be watching every step?
+              <br />I'm the neon light that's running through your cells
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://kit.fontawesome.com/2a2cc46189.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

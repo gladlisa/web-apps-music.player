@@ -1,0 +1,358 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Tomorrow', sans-serif;
+  box-sizing: border-box;
+  letter-spacing: 2px;
+}
+
+.music-player {
+  background: #3F0071;
+  padding: 25px 35px;
+  text-align: center;
+  height: 680px;
+  position: relative; 
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+nav .circle {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background: #fff;
+  color: #FB2576;
+  box-shadow: 0 10px 25px rgba(193, 187, 187, 0.6);
+  cursor: pointer;
+}
+
+#openMenuIcon {
+  display: none; 
+}
+
+.song-img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 8px solid #FB2576;
+  box-shadow: 0 10px 60px rgba(255, 26, 26, 0.22);
+}
+
+.music-player h1 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  margin-top: 20px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 255, 255, 0.8);
+  animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+  to {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.music-player p {
+  font-size: 14px;
+  color: #fff;
+}
+
+#progress {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: #FB2576;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 40px 0 20px 0;
+}
+
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background: #FB2576;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 8px solid #fff;
+  box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+
+.controls, .above-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.controls div {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  background: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #FB2576;
+  box-shadow: 0 10px 25px rgba(193, 187, 187, 0.6);
+  cursor: pointer;
+}
+.above-controls {
+  color: #fff;
+  }
+.cursor-pointer, .fa-solid.fa-repeat {
+   cursor: pointer;
+}
+  
+.controls div:nth-child(2) {
+  transform: scale(1.5);
+  background: #FB2576;
+  color: #fff;
+}
+
+
+#currentTime, #totalDuration {
+  color: #fff;
+  display: inline-flex;
+}
+
+
+.track-time {
+  display: flex;
+  justify-content: space-between;
+  margin-block-end: 20px;
+}
+
+.track-despription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+#overlay, #toMainPageOverlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  background-color: rgba(250, 250, 250, 0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+ 
+}
+#overlay {
+  width: 80%;
+  right: 0;
+  opacity: 90%;
+  height: 100%;
+}
+ #toMainPageOverlay {
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  overflow-y: auto;
+  }
+
+#overlay-content {
+  background-color: #fff;
+  padding: 20px;
+  max-height: 100%; 
+  overflow-y: auto;
+}
+
+#overlay-content, #toMainPageOverlay-content {
+
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  padding-block-start: 25px;
+ }
+ #toMainPageOverlay-content {
+  background-color: #3F0071;
+  padding: 0;
+  height: 100%;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+ }
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 18px;
+  padding-block-start: 25px;
+  padding-left: 10px;
+
+}
+.btn-track.pink, .btn-track.lila  {
+  padding: 10px 20px 10px 15px;
+  border: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+}
+.btn-track.pink {
+  background-color: #3F0071;
+}
+.btn-track.lila {
+  background-color: #FB2576;
+}
+.circle-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tour-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.tour-gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  background-color: #fff;
+}
+
+.tour-gallery-title {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+  color: #fff;
+  font-size: 38px;
+  text-align: center;
+  width: 100%;
+}
+ 
+
+#playlistButton {
+  position: absolute;
+  top: 80%;
+  font-size: 26px;
+  background-color: #3F0071;
+  color: #fff;
+  padding: 8px 25px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(251, 37, 118, 0.8), 0 0 20px rgba(251, 37, 118, 0.8), 0 0 30px rgba(251, 37, 118, 0.8);
+  transition: box-shadow 0.3s ease-in-out;
+  animation: pulsate 2.5s infinite;
+  cursor: pointer;
+
+}
+#stared-text {
+  color: #000;
+  margin-block-start: 20px;
+  text-align: start;
+}
+.fa-shuffle.active {
+  box-shadow: 0 0 5px 5px #00FF00;
+}
+.lyrics {
+  margin-block-start: 40px;
+  position: relative;
+}
+
+.expand-btn, .expand-btn-close  {
+  width: 100%;
+  color: #3f0071;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  padding-inline: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.expand-btn-close {
+  display: none;
+}
+
+
+#lyricsOverlay {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color:#fff;
+  color: #3F0071;
+  border: 1px solid #ccc;
+  padding: 10px;
+ 
+}
+
+#lyricsOverlay p {
+  margin: 0;
+}
+
+#lyricsOverlay {
+  visibility: hidden;
+}
+
+
+#lyricsOverlay.visible {
+  display: flex;
+}
+
+
+
+.hidden {
+  display: none;
+}
+#lyricsContent {
+  color: #3f0071;
+  text-align: start;
+  padding-bottom: 10px;
+} 
+
+  
+   @keyframes pulsate {
+    0% {
+      box-shadow: 0 0 10px rgba(251, 37, 118, 0.8), 0 0 20px rgba(251, 37, 118, 0.8), 0 0 30px rgba(251, 37, 118, 0.8);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(251, 37, 118, 1), 0 0 40px rgba(251, 37, 118, 1), 0 0 60px rgba(251, 37, 118, 1);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(251, 37, 118, 0.8), 0 0 20px rgba(251, 37, 118, 0.8), 0 0 30px rgba(251, 37, 118, 0.8);
+    }
+  }
+  
+
+  @media (min-width: 500px) {
+    .tour-img {
+      min-height: 150px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .tour-img {
+      min-height: 200px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .tour-img {
+      min-height: 250px;
+    }
+  }
+
+  
